@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Nuevo anuncio</h1>
+
+	<form action="/guardar" method="post">
+		<p>
+			<b>Nombre:</b> <input type='text' name='nombre' />
+		</p>
+
+		<p>
+			<b>Asunto:</b> <input type='text' name='asunto' />
+		</p>
+
+		<p>
+			<b>Comentario:</b><br />
+			<textarea name='comentario' rows='5' cols='40'></textarea>
+		</p>
+
+		<input type='submit' name='enviar' value='Enviar' />
+</form>
+	<p th:each="anuncio : ${anuncios}">
+	    <span th:text="'Nombre: '+ ${anuncio.nombre}" /><br/>
+	    <span th:text="'Asunto: '+ ${anuncio.asunto}" /><br/>
+	    <span th:text="'Comentario: '+ ${anuncio.comentario}" /><br/>
+    </p>
+</body>
+</html>
