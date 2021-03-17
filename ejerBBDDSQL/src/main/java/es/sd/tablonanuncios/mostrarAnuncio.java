@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class mostrarAnuncio {
 	
 	@Autowired
-	ListaAnuncio anuncios;
+	private AnuncioRepository anuncios;
 	
 	@RequestMapping(value="/anuncio")
 	public String guardar(@RequestParam int id,
 			              Model model) {
+		List<Anuncio> variosanuncios = anuncios.findAll();	
 		
-		model.addAttribute("anuncio",anuncios.getAnuncios().get(id));
+		model.addAttribute("anuncio",variosanuncios.get(id));
 
 		return "mostrarAnuncio";
 	}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Tablon Anuncio</h1>
+<h1>Asunto / Nombre</h1>
+
+		<p th:each="anuncio : ${anuncios}">
+			<a th:href= "@{/anuncio(id = ${anuncioStat.index})}">
+		    <span th:text="'Nombre: '+ ${anuncio.nombre}" /><br/>
+		    <span th:text="'Asunto: '+ ${anuncio.asunto}" /><br/>
+		    </a>
+	    </p>
+	    
+	    <a href="/enviar_anuncio.html">
+	    	<p>Insertar Nuevo Anuncio</p>
+	    </a>
+</body>
+</html>
